@@ -9,8 +9,10 @@
   "env": {
     "cypress/globals": true
   },
+
   "parser": "@typescript-eslint/parser",
   "rules": {
+    "@typescript-eslint/no-namespace": "off",
     "no-restricted-imports": [
       "error",
       {
