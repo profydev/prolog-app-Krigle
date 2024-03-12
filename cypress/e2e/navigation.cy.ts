@@ -35,7 +35,7 @@ describe("Sidebar Navigation", () => {
       // collapse navigation
       cy.get("nav").contains("Collapse").click();
 
-      // check that links still exist and are functionable
+      // check that links still exist and are functional
       cy.get("nav").find("a").should("have.length", 5).eq(1).click();
       cy.url().should("eq", "http://localhost:3000/dashboard/issues");
 
@@ -51,7 +51,8 @@ describe("Sidebar Navigation", () => {
       .click()
       .url()
       .should(
-        "include",
+        "have.attr",
+        "href",
         "mailto:support@prolog-app.com?subject=Support%20Request:",
       );
   });
