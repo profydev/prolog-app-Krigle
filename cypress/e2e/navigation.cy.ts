@@ -44,6 +44,18 @@ describe("Sidebar Navigation", () => {
     });
   });
 
+  it("should have correct mailto link", () => {
+    //check the support button opens the user's mail and drafts an email with the subject "Support Request"
+    cy.get("nav")
+      .contains("Support")
+      .click()
+      .url()
+      .should(
+        "include",
+        "mailto:support@prolog-app.com?subject=Support%20Request:",
+      );
+  });
+
   context("mobile resolution", () => {
     beforeEach(() => {
       cy.viewport("iphone-8");
