@@ -43,7 +43,6 @@ describe("Sidebar Navigation", () => {
       cy.get("nav").contains("Issues").should("not.exist");
     });
   });
-
   it("should open the user’s email app when clicking the support button", () => {
     const href = "mailto:support@prolog-app.com?subject=Support Request: ";
     cy.visit("http://localhost:3000/dashboard", {
@@ -51,15 +50,9 @@ describe("Sidebar Navigation", () => {
         cy.stub(win, "open").as("windowOpen");
       },
     });
-    cy.get("Collapse").click();
+    cy.get('[data-cy="support-button"]').click();
     cy.get("@windowOpen").should("be.calledWith", href);
   });
-  //     .should(
-  //       "have.attr",
-  //       "href",
-  //       "mailto:support@prolog-app.com?subject=Support%20Request:%20",
-  //     );
-  // });
 
   context("mobile resolution", () => {
     beforeEach(() => {

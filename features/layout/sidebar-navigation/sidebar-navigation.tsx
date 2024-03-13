@@ -85,6 +85,7 @@ export function SidebarNavigation() {
           </ul>
           <ul className={styles.list}>
             <MenuItemButton
+              data-cy="support-button"
               text="Support"
               iconSrc="/icons/support.svg"
               isCollapsed={isSidebarCollapsed}
