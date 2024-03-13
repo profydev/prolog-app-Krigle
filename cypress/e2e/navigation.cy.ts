@@ -44,16 +44,13 @@ describe("Sidebar Navigation", () => {
     });
   });
 
-  it("should have correct mailto link", () => {
-    //check the support button opens the user's mail and drafts an email with the subject "Support Request"
-    cy.get("nav")
-      .contains("Support")
-      .click()
-      .url()
+  it("should open the user’s email app when clicking the support button", () => {
+    cy.visit("https://localhost:3000/dashboard");
+    cy.get("button") // replace with your button selector
       .should(
         "have.attr",
         "href",
-        "mailto:support@prolog-app.com?subject=Support%20Request:",
+        "mailto:support@prolog-app.com?subject=Support%20Request:%20",
       );
   });
 
