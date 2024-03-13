@@ -51,7 +51,7 @@ describe("Sidebar Navigation", () => {
         cy.stub(win, "open").as("windowOpen");
       },
     });
-    cy.get(".support-button").click();
+    cy.get("Collapse").click();
     cy.get("@windowOpen").should("be.calledWith", href);
   });
   //     .should(
