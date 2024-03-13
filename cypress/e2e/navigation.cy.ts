@@ -45,14 +45,21 @@ describe("Sidebar Navigation", () => {
   });
 
   it("should open the user’s email app when clicking the support button", () => {
-    cy.visit("http://localhost:3000/dashboard");
-    cy.get("button") // replace with your button selector
-      .should(
-        "have.attr",
-        "href",
-        "mailto:support@prolog-app.com?subject=Support%20Request:%20",
-      );
+    const href = "mailto:support@prolog-app.com?subject=Support Request: ";
+    cy.visit("http://localhost:3000/dashboard", {
+      onBeforeLoad(win) {
+        cy.stub(win, "open").as("windowOpen");
+      },
+    });
+    cy.get(".support-button").click();
+    cy.get("@windowOpen").should("be.calledWith", href);
   });
+  //     .should(
+  //       "have.attr",
+  //       "href",
+  //       "mailto:support@prolog-app.com?subject=Support%20Request:%20",
+  //     );
+  // });
 
   context("mobile resolution", () => {
     beforeEach(() => {
