@@ -45,7 +45,7 @@ describe("Sidebar Navigation", () => {
   });
 
   it("should open the user’s email app when clicking the support button", () => {
-    cy.visit("https://localhost:3000/dashboard");
+    cy.visit("http://localhost:3000/dashboard");
     cy.get("button") // replace with your button selector
       .should(
         "have.attr",
@@ -70,7 +70,7 @@ describe("Sidebar Navigation", () => {
 
     function isNotInViewport(el: string) {
       cy.get(el).then(($el) => {
-        // naviation should be outside of the screen
+        // navigation should be outside of the screen
         const rect = $el[0].getBoundingClientRect();
         expect(rect.left).to.be.equal(-rect.width);
         expect(rect.right).to.be.equal(0);
