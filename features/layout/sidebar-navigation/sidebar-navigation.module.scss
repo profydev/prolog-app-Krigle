@@ -55,8 +55,6 @@
   width: 7.375rem;
 
   @media (min-width: breakpoint.$desktop) {
-    margin: space.$s0 space.$s4;
-
     &.isCollapsed {
       display: none;
     }
@@ -69,9 +67,7 @@
   width: 1.4375rem;
 
   @media (min-width: breakpoint.$desktop) {
-    margin: space.$s0 space.$s4;
-
-    & .isCollapsed {
+    &.isCollapsed {
       display: block;
     }
   }

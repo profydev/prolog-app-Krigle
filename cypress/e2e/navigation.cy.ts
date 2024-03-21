@@ -2,10 +2,12 @@ describe("Sidebar Navigation", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000/dashboard");
   });
+
   context("desktop resolution", () => {
     beforeEach(() => {
       cy.viewport(1025, 900);
     });
+
     it("links are working", () => {
       // check that each link leads to the correct page
       cy.get("nav")
@@ -45,21 +47,23 @@ describe("Sidebar Navigation", () => {
       cy.get("nav").contains("Issues").should("not.exist");
     });
 
-    it("shows large logo when switching to landscape mode whilst navigation is collapsed", () => {
-      // collapse navigation
+    it("shows large logo when switching to landscape mode while navigation is collapsed", () => {
+      //collapse navigation
       cy.get("nav").contains("Collapse").click();
-      // check that small logo is shown
+
+      //check the small logo is shown
       cy.get('img[src="/icons/logo-small.svg"').should("be.visible");
       cy.get('img[src="/icons/logo-large.svg"').should("not.be.visible");
 
-      //switch to landscape mode that uses the mobile menu
+      // switch to landscape mode that uses the mobile menu
       cy.viewport(900, 1025);
 
-      //check that the large logo is shown
+      //check the large logo is shown
       cy.get('img[src="/icons/logo-small.svg"').should("not.be.visible");
       cy.get('img[src="/icons/logo-large.svg"').should("be.visible");
     });
-  });
+  }); // <- Closing curly brace for "desktop resolution" context
+
   context("mobile resolution", () => {
     beforeEach(() => {
       cy.viewport("iphone-8");
