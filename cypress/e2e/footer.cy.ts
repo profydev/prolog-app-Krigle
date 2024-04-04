@@ -6,6 +6,6 @@ describe("Footer", () => {
   });
 
   it("Should show the version number from package.json", () => {
-    cy.get(".footer").contains(`Version: ${version}`);
+    cy.get("footer").contains(`Version: ${version}`);
   });
 });
