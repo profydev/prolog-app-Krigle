@@ -63,8 +63,12 @@ describe("Sidebar Navigation", () => {
       cy.viewport(900, 1025);
 
       //check the large logo is shown
-      cy.get('img[src="/icons/logo-small.svg"').should("not.be.visible");
-      cy.get('img[src="/icons/logo-large.svg"').should("be.visible");
+      cy.get("header")
+        .find('img[src="/icons/logo-small.svg"]')
+        .should("not.be.visible");
+      cy.get("header")
+        .find('img[src="/icons/logo-large.svg"]')
+        .should("be.visible");
     });
   }); // <- Closing curly brace for "desktop resolution" context
 
